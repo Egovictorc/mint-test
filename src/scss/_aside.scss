@@ -1,0 +1,54 @@
+.aside {
+  background-color: #fff;
+  padding: 2rem 0;
+    font-size: 14px;
+    
+  .invoice-btn {
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    margin-left: 2rem;
+  }
+
+  ul {
+      margin-top: 2rem;
+      padding: 0;
+  }
+
+  li {
+    padding-left: 2rem;
+      list-style: none;
+      color: #647787;
+      border-left: 3px solid transparent;
+
+      &:first-child {
+        text-transform: capitalize;
+      }
+
+      &:not(:last-child) {
+          margin-bottom: 1rem;
+      }
+
+      &.active, 
+      &:not(:first-child):hover {
+          border-left: 3px solid $color-primary;
+          background-color: $color-primary-light;
+
+
+      }
+  }
+
+  a{
+      text-decoration: none;
+      color: inherit;
+      text-transform: capitalize;
+      display: inline-block;
+      padding: 5px;
+  }
+
+  span {
+      margin-left: 1rem;
+  }
+}

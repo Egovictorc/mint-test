@@ -1,0 +1,22 @@
+.main {
+  padding: 2rem 3rem 2rem 2rem;
+
+    & > *:not(:first-child) {
+        margin-top: 2rem;
+    }
+
+  .transactions__col {
+    background-color: green;
+    
+    & > * {
+      width: 20%;
+      height: 3rem;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+ 
+}

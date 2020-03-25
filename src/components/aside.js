@@ -40,18 +40,15 @@ const orders = [
 
 
 const getItems = itemsArray =>
-  itemsArray.map(({ title, icon, ...props }) => {
+  itemsArray.map(({ title, icon, ...props }) =>  (
+    <li key={title} className={classname(props.active && "active")}>
+      <Link to="/">
+        <img src={icon} alt={title} />
+        <span> {title} </span>
+      </Link>
+    </li>
+  ));
 
-    console.log("props ", props)
-      return (
-        <li key={title} className={classname(props.active && "active")}>
-          <Link to="/">
-            <img src={icon} alt={title} />
-            <span> {title} </span>
-          </Link>
-        </li>
-      )
-  });
 
 const Aside = () => (
     <Col className="aside col-4 col-md-3">

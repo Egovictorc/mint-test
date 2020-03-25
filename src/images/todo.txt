@@ -1,0 +1,4 @@
+
+setup github repo
+create project
+install dependencies (react-bootstrap, bootstrap, node-sass) 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 
-
 /////////IMPORT COMPONENTS
 import Header from "../components/header";
 import Aside from "../components/aside";
+import Main from "../components/main";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Aside />
 
           {/* MAIN */}
-          <main></main>
+          <Main />
         </Row>
       </Container>
     </div>

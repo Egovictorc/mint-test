@@ -28,4 +28,4 @@ const getUnResolved = () => (dispatch) => (
 
 
 
-export { getAll, getResolved, getPending; getUnResolved, getSettled}
+export { getAll, getResolved, getPending, getUnResolved, getSettled}

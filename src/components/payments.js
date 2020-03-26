@@ -1,85 +1,43 @@
-import React from "react";
-import { Row, Col, InputGroup, FormControl } from "react-bootstrap";
-import { FaAngleDown } from "react-icons/fa";
-import { MdSearch } from "react-icons/md";
+import React, { useState, useEffect} from "react";
+import {connect } from "react-redux"
+import * as actions from "../actionCreators/actionCreator"
+
+
+import PaymentsHeading from "./paymentHeading"
+
 
 //////////IMPORT ITEMS TABLE
 import ItemsTable from "./itemsTable";
 
-const categories = [
-  "all",
-  "reconciled",
-  "un-reconciled",
-  "settled",
-  "unsettled"
-];
 
-const getCategories = categories =>
-  categories.sort().map(category => (
-    <option key={category} value={category} className="category">
-      {" "}
-      {category}{" "}
-    </option>
-  ));
 
-const Payments = () => {
+const Payments = (props) => {
+  const [items, setItems ] = useState([])
+
+  useEffect( () =>{
+    ///////GET ALL ITEMS
+    props.getAll();
+    ////////////SET ITEMS TO ALL ITEMS
+    setItems(props.allItems)
+  }, [])
+
+  const handleSelect = () => {
+    
+  }
+
   return (
     <>
-      <h3 className="payments__heading">payments</h3>
-      <Row className="payments">
-        <Col className="d-flex col-5 align-items-center">
-          <span> showing</span>
-          <InputGroup>
-            <FormControl
-              placeholder="20"
-              aria-label="number of items"
-              className="show"
-            />
+      <PaymentsHeading handleSelect={handleSelect} />
 
-            <InputGroup.Append>
-              <InputGroup.Text>
-                <FaAngleDown />
-              </InputGroup.Text>
-            </InputGroup.Append>
-          </InputGroup>
-
-          <span >
-            {" "}
-            out of 500 payments
-          </span>
-        </Col>
-
-        <Col>
-          <InputGroup className="search">
-            <InputGroup.Prepend>
-              <InputGroup.Text>
-                <MdSearch />
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-
-            <FormControl
-              placeholder="search payments"
-              aria-label="search payments"
-            />
-          </InputGroup>
-        </Col>
-
-        <Col className="d-flex">
-          <label htmlFor="category"> show</label>
-          <select
-            aria-label="items category"
-            name="category"
-            id="category"
-            className="categories form-control"
-          >
-            {getCategories(categories)}
-          </select>
-        </Col>
-      </Row>
-
-        <ItemsTable />
+    <ItemsTable items={items} />
     </>
   );
 };
 
-export default Payments;
+
+
+const mapStateToProps = state => ({allItems: state.allItems})
+const mapDispatchToProps = {...actions }
+
+
+export default connect(mapStateToProps, mapDispatchToProps )(Payments)

@@ -68,7 +68,10 @@ const getItems = itemsArray =>
 const Main = () => {
   return (
     <>
-      <Row>{getTransactions(transactionArray)}</Row>
+      <Row>
+        {
+        getTransactions(transactionArray)}
+        </Row>
 
       <Row className="">
         <Col className="date__col col-8 bg-white">

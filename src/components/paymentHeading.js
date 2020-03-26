@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, InputGroup, FormControl } from "react-bootstrap";
+import Select from "react-select"
 import { FaAngleDown } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
 
@@ -13,7 +14,7 @@ const categories = [
   
   const getCategories = categories =>
     categories.sort().map(category => (
-      <option key={category} value={category} className="category">
+      <option key={category} value={category} name={category} className="category">
         {" "}
         {category}{" "}
       </option>
@@ -21,7 +22,7 @@ const categories = [
 
     
 
-const PaymentHeading = ({handleSelect}) => {
+const PaymentHeading = ({handleChange, selectedCategory}) => {
   return (
     <>
       <h3 className="payments__heading">payments</h3>
@@ -62,12 +63,14 @@ const PaymentHeading = ({handleSelect}) => {
 
         <Col className="d-flex">
           <label htmlFor="category"> show</label>
+
           <select
             aria-label="items category"
-            name="category"
             id="category"
             className="categories form-control"
-            onSelect={handleSelect}
+            onChange={(e) => handleChange(e)}
+            value={selectedCategory.value}
+            name={selectedCategory.name}
           >
             {getCategories(categories)}
           </select>

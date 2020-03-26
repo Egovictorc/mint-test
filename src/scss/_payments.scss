@@ -1,0 +1,53 @@
+.payments {
+  &__heading,
+  .categories,
+  .category  {
+    text-transform: capitalize;
+  }
+ 
+
+  .input-group-text,
+  .form-control:not(.categories) {
+      border: none;
+      background-color: transparent;
+  }
+  .form-control.show {
+    max-width: 30%;
+    display: inline-block;
+  }
+
+  .search {
+    border-bottom: 2px solid #787878;
+  }
+
+}
+
+
+////////////////ITEM TABLE
+.item-table {
+  tr,
+  td {
+    background-color: #fff;
+  }
+th {
+   background-color: #CCCFD4;
+}
+  th, 
+  td {
+    text-transform: capitalize;
+  }
+  td {
+    border-bottom: 1px solid #CCCFD4;
+    vertical-align: text-bottom;
+  }
+  td img {
+    margin-right: .5rem;
+  }
+
+  td span {
+    display: inline-block;
+    padding: .5rem 1.6rem;
+    border: 2px solid #CCCFD4;
+    border-radius: 30px;
+  }
+}

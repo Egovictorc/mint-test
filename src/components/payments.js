@@ -10,9 +10,9 @@ import PaymentsHeading from "./paymentHeading"
 import ItemsTable from "./itemsTable";
 
 
-
 const Payments = (props) => {
   const [items, setItems ] = useState([])
+  const [ selectedCategory, setSelectedCategory ] = useState({name: "all", value: "all"})
 
   useEffect( () =>{
     ///////GET ALL ITEMS
@@ -21,13 +21,14 @@ const Payments = (props) => {
     setItems(props.allItems)
   }, [])
 
-  const handleSelect = () => {
-    
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSelectedCategory({name, value})
   }
 
   return (
     <>
-      <PaymentsHeading handleSelect={handleSelect} />
+      <PaymentsHeading handleChange={handleChange} selectedCategory={selectedCategory} />
 
     <ItemsTable items={items} />
     </>

@@ -35,6 +35,7 @@ const ItemsTable = ({items}) => {
           ))}
         </tr>
       </thead>
+
       <tbody>
         {getTableBody(items)}
       </tbody>

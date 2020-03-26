@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import {connect } from "react-redux"
+import * as actions from "../actionCreators/actionCreator"
+
 import { Row, Col, InputGroup, FormControl } from "react-bootstrap";
 import { FaAngleDown } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
@@ -22,7 +25,18 @@ const getCategories = categories =>
     </option>
   ));
 
-const Payments = () => {
+const Payments = (props) => {
+
+  const [items, setItems ] = useState([])
+
+  useEffect( () =>{
+    ///////GET ALL ITEMS
+    props.getAll();
+
+    ////////////SET ITEMS TO ALL ITEMS
+    setItems(props.allItems)
+  }, [])
+
   return (
     <>
       <h3 className="payments__heading">payments</h3>
@@ -76,10 +90,15 @@ const Payments = () => {
           </select>
         </Col>
       </Row>
-
-        <ItemsTable />
+    <ItemsTable items={items} />
     </>
   );
 };
 
-export default Payments;
+
+
+const mapStateToProps = state => ({allItems: state.allItems})
+const mapDispatchToProps = {...actions }
+
+
+export default connect(mapStateToProps, mapDispatchToProps )(Payments)

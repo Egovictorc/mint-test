@@ -1,22 +1,85 @@
 .main {
   padding: 2rem 3rem 2rem 2rem;
 
-    & > *:not(:first-child) {
-        margin-top: 2rem;
-    }
-
-  .transactions__col {
-    background-color: green;
-    
-    & > * {
-      width: 20%;
-      height: 3rem;
-    }
+  & > *:not(:first-child) {
+    margin-top: 2rem;
   }
 
-  img {
+  img.transaction {
     width: 100%;
   }
 
- 
+  ///////////BIG GRAPH SECTION
+  .date__col {
+    .input-group {
+    }
+
+    .date {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  ::placeholder {
+    text-transform: capitalize;
+  }
+
+  .angle-btn {
+    background-color: #cccfd4;
+    border: none;
+    margin-right: 1rem;
+  }
+
+  .month__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .month__item {
+    list-style: none;
+    padding: 0 1.5rem 5rem;
+    text-transform: capitalize;
+  }
+
+  .month-graph-container {
+    position: relative;
+  }
+
+  .month-graph {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+
+  .payments__list,
+  .orders__list {
+    background-color: #ffffff;
+    padding: 2rem;
+
+    li {
+      list-style: none;
+      text-transform: capitalize;
+
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+
+    span {
+      font-weight: 600;
+    }
+
+    .warning {
+      color: rgb(214, 214, 54);
+    }
+
+    .success {
+      color: green;
+    }
+
+    .info {
+      color: $color-primary;
+    }
+  }
 }
